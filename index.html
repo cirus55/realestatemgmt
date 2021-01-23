@@ -4,10 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Central Park</title>
     <!--Bootstrap CDN-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!--Awesome Font-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <!--Bootstrap JS-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -21,9 +32,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" id="manager" onclick="showManagerForm()">Manager</a>
-                    <a class="nav-link" id="user" onclick="showUserForm()">User</a>
-                    <a class="nav-link" href="#">Contact Us</a>
+                    <a class="nav-link" onclick="showManagerForm()">Manager</a>
+                    <a class="nav-link" onclick="showTenantForm()">Tenants</a>
+                    <a class="nav-link" onclick="showContactCard()">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -43,36 +54,38 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <!--User-->
-        <form id="userForm">
-            <h1 class="display-6">User</h1>
+        <!--Tenants-->
+        <form id="tenantForm">
+            <h1 class="display-6">Tenant</h1>
             <div class="mb-3">
-                <label for="userEmail" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp">
+                <label for="tenantEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="tenantEmail" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label for="userPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="userPassword">
+                <label for="tenantPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="tenantPassword">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <!--Contact Us Card-->
+        <div class="card" style="width: 80rem;" id="contactCard">
+            <img src="contactus.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Contact US</h5>
+                <p class="card-text">We are happy to hear from you.</p>
+                <a href="#" class="btn btn-primary">Call Us</a>
+            </div>
+        </div>
     </div>
 
-    <!--Bootstrap scripts-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-        crossorigin="anonymous"></script>
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!--Firebase-->
+    <!--Firebase SDK -->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script defer src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
 
     <script>
         // Your web app's Firebase configuration
@@ -90,8 +103,10 @@
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
     </script>
-    <!--Custom code-->
-    <script src="main.js"></script>
+
+    <!--Custom Code-->
+    <script src=index.js></script>
+
 </body>
 
 </html>
