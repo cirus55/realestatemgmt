@@ -21,12 +21,11 @@ $("#createTenantForm").submit(function (event) {
     lastnameT = $("#newTenantLastname").val().trim();
     email = $("#newTenantEmail").val().trim();
     password = $("#newTenantPassword").val().trim();
-    console.log(email, password)
 
     firebase.firestore().collection("tenantsDB").get().then((querySnapshot) => {
         i = 0
         querySnapshot.forEach((doc) => {
-            if (email == doc.data().tenantEmail) {
+            if (email == doc.data().email) {
                 console.log('Email already registered')
             }
             else {
@@ -63,6 +62,71 @@ $("#createTenantForm").submit(function (event) {
         }
     });
 });
+
+// Bring Users and add them to Tenants Table
+function showTenantsTable(){
+    newTable = $("<table>");
+    newTable.addClass("table")
+    newThead = $("<thead>");
+    newTable.append(newThead)
+
+    newTr = $("<tr>");
+    newThead.append(newTr)
+
+    newTh1 = $("<th>");
+    newTh1.attr("scope", "col");
+    newTh1.text("Name");
+    newTr.append(newTh1)
+
+    newTh2 = $("<th>");
+    newTh2.attr("scope", "col");
+    newTh2.text("Last Name");
+    newTr.append(newTh2)
+
+    newTh3 = $("<th>");
+    newTh3.attr("scope", "col");
+    newTh3.text("Email");
+    newTr.append(newTh3)
+
+    newTh4 = $("<th>");
+    newTh4.attr("scope", "col");
+    newTh4.text("Password");
+    newTr.append(newTh4)
+
+    newTbody = $("<tbody>")
+    newTable.append(newTbody)
+
+    console.log("antes de firestore")
+
+    firebase.firestore().collection("tenantsDB").get().then((querySnapshot) => {
+        console.log("despues de firestore")
+        
+        querySnapshot.forEach((doc) => {
+
+            newTr = $("<tr>");
+            newTd1 = $("<td>");
+            newTd1.text(doc.data().name)
+            newTr.append(newTd1)
+
+            newTd2 = $("<td>");
+            newTd2.text(doc.data().lastname)
+            newTr.append(newTd2)
+
+            newTd3 = $("<td>");
+            newTd3.text(doc.data().email)
+            newTr.append(newTd3)
+
+            newTd4 = $("<td>");
+            newTd4.text(doc.data().password)
+            newTr.append(newTd4)
+
+            newTbody.append(newTr)
+        });
+    });
+
+
+    $("#tenantsTable").append(newTable);
+}
 
 
 $(document).on("click", "#logout", logout);
