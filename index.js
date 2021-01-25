@@ -6,6 +6,7 @@ $('#contactCard').hide();
 
 // Hide forms when click on Central Park 
 function hideForms() {
+    $('#torres').show();
     $('#managerForm').hide();
     $('#tenantForm').hide();
     $('#contactCard').hide();
@@ -13,6 +14,7 @@ function hideForms() {
 
 //Show manager login form
 function showManagerForm() {
+    $('#torres').hide();
     $('#managerForm').show();
     $('#tenantForm').hide();
     $('#contactCard').hide();
@@ -20,6 +22,7 @@ function showManagerForm() {
 
 //Show tenants login form
 function showTenantForm() {
+    $('#torres').hide();
     $('#managerForm').hide();
     $('#tenantForm').show();
     $('#contactCard').hide();
@@ -27,6 +30,7 @@ function showTenantForm() {
 
 //Show contact card
 function showContactCard() {
+    $('#torres').hide();
     $('#managerForm').hide();
     $('#tenantForm').hide();
     $('#contactCard').show();

@@ -30,6 +30,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
+                    <a class="nav-link" href="#" id="expenses" onclick="showExpensesTable()">Expenses</a>
                     <a class="nav-link" href="#" onclick="logout()">Logout</a>
                 </div>
             </div>
@@ -37,7 +38,8 @@
     </nav>
     <br></br>
     <div class="container">
-        <h1>Tenant</h1>
+        <img id="user" src="tenant.jpg" class="card-img-top" alt="...">
+        <div id="expensesTable"></div>
     </div>
 
     <!--Firebase SDK -->
